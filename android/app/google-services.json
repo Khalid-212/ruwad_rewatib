@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1049329557684",
+    "project_id": "ruwad-tracking",
+    "storage_bucket": "ruwad-tracking.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049329557684:android:1ca691b5a1e510d4a0f7e1",
+        "android_client_info": {
+          "package_name": "com.ruwad.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4n1VLNr2ZG5EKTJV8BOcd64rmEMzR01s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
