@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ruwad_rewatib/services/auth_service.dart';
 import 'package:ruwad_rewatib/widgets/core/NeumorphicTextField.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,7 +11,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   @override
@@ -63,8 +64,8 @@ class _LoginPageState extends State<LoginPage> {
             // Username Field
             NeumorphicTextField(
               context,
-              controller: _usernameController,
-              labelText: 'Username',
+              controller: _emailController,
+              labelText: 'email',
               icon: Icons.person,
             ),
             const SizedBox(height: 20),
@@ -79,8 +80,12 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 40),
             // Sign in Button
             ElevatedButton(
-              onPressed: () {
-                // Handle sign in logic here
+              onPressed: () async {
+                await AuthService().signin(
+                  context: context,
+                  email: _emailController.text,
+                  password: _passwordController.text,
+                );
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 15),
@@ -100,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
             // Sign up Button
             TextButton(
               onPressed: () {
-                context.go('/signin');
+                context.go('/signup');
               },
               child: Text(
                 'Don\'t have an account? Sign Up',

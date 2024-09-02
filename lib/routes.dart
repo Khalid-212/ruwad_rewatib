@@ -8,15 +8,15 @@ final GoRouter router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
+      builder: (context, state) => const LoginPage(),
+    ),
+    GoRoute(
+      path: '/home',
       builder: (context, state) => HomePage(),
     ),
     GoRoute(
-      path: '/signin',
-      builder: (context, state) => LoginPage(),
-    ),
-    GoRoute(
       path: '/signup',
-      builder: (context, state) => SignUpPage(),
+      builder: (context, state) => const SignUpPage(),
     ),
     // GoRoute(
     //   path: '/admin',

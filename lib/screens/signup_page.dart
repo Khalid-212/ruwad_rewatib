@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ruwad_rewatib/services/auth_service.dart';
 import 'package:ruwad_rewatib/widgets/core/NeumorphicTextField.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -99,8 +100,12 @@ class _SignUpPageState extends State<SignUpPage> {
             const SizedBox(height: 40),
             // Sign up Button
             ElevatedButton(
-              onPressed: () {
-                // Handle sign up logic here
+              onPressed: () async {
+                await AuthService().signup(
+                  context: context,
+                  email: _emailController.text,
+                  password: _passwordController.text,
+                );
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 15),
@@ -120,7 +125,7 @@ class _SignUpPageState extends State<SignUpPage> {
             // Sign in Button
             TextButton(
               onPressed: () {
-                context.go('/signin');
+                context.go('/');
               },
               child: Text(
                 'Already have an account? Sign In',
